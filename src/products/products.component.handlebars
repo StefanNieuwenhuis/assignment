@@ -1,0 +1,22 @@
+<div>
+    {{#each products}}
+    <div>
+        <img src="{{images.1.url}}" />
+    </div>
+    <ul>
+        <li>{{specsTag}}</li>
+        <li><a href="{{urls.0.value}}">{{title}}</a></li>
+        <li><small>{{summary}}</small></li>
+        <li>{{rating}}</li>
+        {{#if promotions}}
+        <li>{{promotions.0.title}}</li>
+        {{/if}}
+        <li class="description">{{{trim shortDescription}}}...<a href="{{urls.0.value}}">Meer</a></li>
+    </ul>
+    <ul>
+        <li>{{currency offerData.offers.0.price}}</li>
+        <li>{{offerData.offers.0.availabilityDescription}}</li>
+        <li>Verkoop door: {{offerData.offers.0.seller.displayName}}</li>
+    </ul>
+    {{/each}}
+</div>
