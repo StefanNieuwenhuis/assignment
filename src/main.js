@@ -2,6 +2,7 @@
 import $ from 'jquery';
 import './styles.scss';
 
+import HeaderComponent from './header/header.component';
 import ProductsComponent from './products/products.component';
 import RefinementComponent from './refinement/refinement.component';
 
@@ -29,6 +30,7 @@ class Main {
     }
 
     createComponents() {
+        this.header = new HeaderComponent("#header"); // Create a new instance of HeaderComponent
         this.products = new ProductsComponent("#products"); // Create a new instance of ProductsComponent
         this.refinement = new RefinementComponent("#refinement"); // Create a new instance of RefinementComponent
 

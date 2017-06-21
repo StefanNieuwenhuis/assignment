@@ -1,9 +1,14 @@
-$background: transparent;
-
+@import "../_variables.scss";  
 div{
     background: $background;
 }
 
 ul{
     list-style: none;
+}
+
+a.product-title{
+    font-weight: 600;
+    padding-bottom: 0;
+    color: $font-color;
 }
