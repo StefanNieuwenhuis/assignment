@@ -14,6 +14,10 @@ class Main {
 
             // Intialize infinite scroll for #container div
             this.initInfiniteScroll("#container");
+
+            $("input[type='checkbox']").change(() => {
+                console.log(this.products);
+            });
         });
 
     }
