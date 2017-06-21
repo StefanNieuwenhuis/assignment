@@ -6,7 +6,6 @@ module.exports = (rating) => {
         for(let i=0; i<=total; i++){
             stars += "*";
         }
-
     }
     return stars;
 
