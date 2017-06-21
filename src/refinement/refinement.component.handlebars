@@ -1,4 +1,7 @@
-
-{{#each this}}
-    <input type="checkbox" name="chkBoxRefinement" value="{{value}}"/> {{label}}</br>
-{{/each}}
+<ul>
+    {{#each this}}
+    <li>
+        <input type="checkbox" name="chkBoxRefinement" value="{{value}}" /> {{label}}
+    </li>
+    {{/each}}
+</ul>

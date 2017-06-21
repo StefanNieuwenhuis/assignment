@@ -6,7 +6,6 @@ let template = require('./refinement.component.handlebars');
 class RefinementComponent{
     constructor(container){
         this.container = container;
-        
 
         this.items = [
             {
@@ -17,6 +16,10 @@ class RefinementComponent{
                 "label": "Samsung",
                 "value": "Samsung"
             },
+            {
+                "label": "Lenovo",
+                "value": "Lenovo"
+            }
 
         ];
 
@@ -24,7 +27,6 @@ class RefinementComponent{
     }
 
     load(){
-        console.log(this.items);
         $(this.container).html(template(this.items));
     }
 }
