@@ -1,5 +1,6 @@
 'use strict';
 import $ from 'jquery';
+import "jquery-ui/ui/widgets/autocomplete";
 import './styles.scss';
 
 import HeaderComponent from './header/header.component';
@@ -21,10 +22,36 @@ class Main {
                 const target = $(event.currentTarget)[0];
                 if (target.checked) {
                     this.products.addFilter($(target).val());
-                }else{
+                } else {
                     this.products.removeFilter($(target).val());
                 }
                 this.products.load();
+            });
+
+
+            $("#searchfield").autocomplete({
+                source: (request, response) => {
+                    $.ajax({
+                        url: `${window.location.protocol}//zoeksuggesties.s-bol.com/extern/qs/OpenSearchJSCB/search_suggestions_callback/media_all/${encodeURIComponent(request.term)}`,
+                        cache: true,
+                        dataType: 'jsonp',
+                        jsonp: false,
+                        jsonpCallback: 'search_suggestions_callback',
+                        success: (data) => {
+                            console.log(data);
+                            let suggestions = [];
+                            data[1].forEach(suggestion => { suggestions.push(suggestion); });
+                            response(suggestions);
+                        },
+                        error: (error) => response([])
+                    });
+                },
+                select: function (event, ui) {
+                   if(ui.item){
+                       console.log(this);
+                       this.products.addFilter(ui.item.value);
+                   }
+                }
             });
         });
 

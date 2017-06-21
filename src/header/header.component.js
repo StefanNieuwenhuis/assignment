@@ -12,6 +12,8 @@ class HeaderComponent {
 
     load() {
         $(this.container).html(template());
-     }
+
+        
+    }
 }
 export default HeaderComponent;

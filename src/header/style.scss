@@ -4,3 +4,20 @@ h1{
     width: 10em;
     height: 2.5em;
 }
+
+
+
+.ui-autocomplete{
+    background: white !important;
+}
+.ui-autocomplete:hover{
+    cursor: pointer;
+}
+
+.ui-menu-item:hover{
+    background: lightblue;
+}
+
+.ui-helper-hidden-accessible {
+    display:none; 
+}
