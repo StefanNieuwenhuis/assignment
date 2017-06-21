@@ -3,30 +3,32 @@ import './style.scss';
 
 let template = require('./refinement.component.handlebars');
 
-class RefinementComponent{
-    constructor(container){
+class RefinementComponent {
+    constructor(container) {
         this.container = container;
 
-        this.items = [
+        this.items =
             {
-                "label": "Apple",
-                "value": "Apple"
-            },
-            {
-                "label": "Samsung",
-                "value": "Samsung"
-            },
-            {
-                "label": "Lenovo",
-                "value": "Lenovo"
-            }
-
-        ];
+                "merken": [
+                    {
+                        "label": "Apple",
+                        "value": "Apple"
+                    },
+                    {
+                        "label": "Samsung",
+                        "value": "Samsung"
+                    },
+                    {
+                        "label": "Lenovo",
+                        "value": "Lenovo"
+                    }
+                ]
+            };
 
         this.load();
     }
 
-    load(){
+    load() {
         $(this.container).html(template(this.items));
     }
 }

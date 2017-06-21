@@ -13,7 +13,7 @@ class Main {
             this.createComponents();
 
             // Intialize infinite scroll for #container div
-            this.initInfiniteScroll("#container");
+            this.initInfiniteScroll("#products");
 
             $("input[type='checkbox']").change((event) => {
                 const target = $(event.currentTarget)[0];
@@ -22,13 +22,14 @@ class Main {
                 }else{
                     this.products.removeFilter($(target).val());
                 }
+                this.products.load();
             });
         });
 
     }
 
     createComponents() {
-        this.products = new ProductsComponent("#container"); // Create a new instance of ProductsComponent
+        this.products = new ProductsComponent("#products"); // Create a new instance of ProductsComponent
         this.refinement = new RefinementComponent("#refinement"); // Create a new instance of RefinementComponent
 
     }

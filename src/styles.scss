@@ -1,4 +1,16 @@
-#container{
+html, body{
+    overflow: hidden;
+}
+
+.container{
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
+
+#products{
     overflow-y: scroll;
     width: 100%;
     height: 750px;
