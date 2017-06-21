@@ -5,6 +5,7 @@ import './styles.scss';
 import HeaderComponent from './header/header.component';
 import ProductsComponent from './products/products.component';
 import RefinementComponent from './refinement/refinement.component';
+import FooterComponent from './footer/footer.component';
 
 class Main {
     constructor() {
@@ -33,6 +34,7 @@ class Main {
         this.header = new HeaderComponent("#header"); // Create a new instance of HeaderComponent
         this.products = new ProductsComponent("#products"); // Create a new instance of ProductsComponent
         this.refinement = new RefinementComponent("#refinement"); // Create a new instance of RefinementComponent
+        this.footer = new FooterComponent("#footer"); // Create a new instance of FooterComponent
 
     }
 
