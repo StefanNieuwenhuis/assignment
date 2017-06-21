@@ -1,5 +1,5 @@
 import $ from "jquery";
-import "./styles.scss";
+import "./style.scss";
 
 let template = require("./products.component.handlebars");
 
