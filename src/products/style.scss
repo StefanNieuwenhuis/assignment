@@ -3,6 +3,12 @@ div{
     background: $background;
 }
 
+#products{
+    overflow-y: scroll;
+    width: 100%;
+    height: 750px;
+}
+
 ul{
     list-style: none;
 }
