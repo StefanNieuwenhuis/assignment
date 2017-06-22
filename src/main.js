@@ -51,7 +51,6 @@ class Main {
             $("#btnSearch").click(event => {
                 event.preventDefault();
 
-                this.products.setLimit(130);
                 this.products.query = $("#searchfield").val();
                 this.products.init();
             });

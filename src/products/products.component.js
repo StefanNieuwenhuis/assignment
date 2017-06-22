@@ -21,9 +21,10 @@ class ProductsComponent {
     init() {
         this.loadData().then(products => {
             this.products = products;
-            if (this.limit <= products.length) { this.createProductChunks(); }
+            
             if(this.query){this.search()};
             if (this.filters.length > 0) { this.filter(); }
+            if (this.limit <= products.length) { this.createProductChunks(); }
             this.setTemplate();
         });
     }
