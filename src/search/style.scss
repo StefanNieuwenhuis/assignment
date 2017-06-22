@@ -1,8 +1,29 @@
 @import "../_variables.scss";  
-h1{
-    font-weight: 400;
-    width: 10em;
-    height: 2.5em;
+
+#searchfield{
+    border-width: 1px 0 1px 1px;
+    border-radius: .33333em 0 0 .33333em;
+    border-color:#c3c1bc;
+
+    height: 32px;
+    width: 250px;
+
+    margin-right: -3px;
+    padding: 0 .5em 0 .5em;
+}
+
+#btnSearch{
+    border-radius: 0 .22222em .22222em 0;
+    border: 1px solid #36c;
+
+    height: 35px;
+
+    margin: 0;
+
+    background: #36c;
+
+    color: white;
+    font-weight: 300;
 }
 
 

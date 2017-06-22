@@ -48,7 +48,7 @@ class Main {
                 }
             });
 
-            $("#search").click(event => {
+            $("#btnSearch").click(event => {
                 event.preventDefault();
                 let val = $("#searchfield").val();
 
