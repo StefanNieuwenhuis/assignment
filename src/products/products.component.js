@@ -2,6 +2,7 @@ import $ from "jquery";
 import "./style.scss";
 
 let template = require("./products.component.handlebars");
+import * as TABLETS from "../../data/tablets.json";
 
 class ProductsComponent {
 
@@ -9,7 +10,7 @@ class ProductsComponent {
         this.container = container; // DOM container element
         this.filters = []; // Array for filters
         this.limit = 10; // Limit of products showed
-        
+
         this.init(); // Initialize 
     }
 
@@ -18,28 +19,16 @@ class ProductsComponent {
     }
 
     load() {
-        $.getJSON({
-            url: "../../data/tablets.json",
-            success: (data) => {
-                // Check if the limit range is smaller than the products array
-                if (this.limit <= data.products.length) {
-                    let products = data.products.slice(0, this.limit); // Slice the array to the limit
-
-                    // Filter the sliced array when filters are set
-                    if (this.filters.length > 0) {
-                       products = products.filter((product) => {
-                          return this.filters.indexOf(product.specsTag)>=0;
-                       });
-                    }
-
-                    // Populate Handebars template
-                    $(this.container).html(template(products));
-                }
-            },
-            fail: (error) => { 
-                console.error(error); // Throw an error message if the request fails
-            }
-        });
+        let products = TABLETS.products;
+        if (this.limit <= products.length) {
+            products = products.slice(0, this.limit);
+        }
+        if (this.filters.length > 0) {
+            products = products.filter((product) => {
+                return this.filters.indexOf(product.specsTag) >= 0;
+            });
+        }
+        $(this.container).html(template(products));
     }
 
     increaseLimit(value) {
