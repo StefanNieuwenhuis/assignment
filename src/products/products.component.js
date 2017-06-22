@@ -50,12 +50,9 @@ class ProductsComponent {
     }
 
     search(){
-        this.products = this.products.filter(product =>{
-            console.log(product.specsTag.includes(this.query));
-            return product.specsTag.toLowerCase().includes(this.query);
-            
+        this.products = this.products.filter(product =>{            
+            return product.specsTag.toLowerCase().includes(this.query.toLowerCase()); 
         });
-        console.log(this.query);
     }
 
     setTemplate() {
