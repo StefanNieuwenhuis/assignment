@@ -1,11 +1,9 @@
 @import "../_variables.scss";  
-h1{
-    font-weight: 400;
-    width: 10em;
-    height: 2.5em;
+img{
+    float: left;
+    padding-right: 5em;
+    padding-left: 2em;
 }
-
-
 
 .ui-autocomplete{
     background: white !important;

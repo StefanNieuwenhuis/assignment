@@ -10,6 +10,14 @@ html, body{
 header, footer{
     flex: 1 100%;
     min-height: 100%;
+    margin: 0 auto;
+}
+header{
+    margin-bottom: 2em;
+}
+
+main{
+    width: 100%;
 }
 
 .flex-container{

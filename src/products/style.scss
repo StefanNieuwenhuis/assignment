@@ -19,13 +19,26 @@ a.product-title{
 }
 
 .product-image{
-    flex: 1 2 20%;
+    flex: 0 0 10%;
 }
 
 .product-info{
-    flex: 1 2 60%;
+    flex: 0 1 60%;
+}
+
+.product-offer-info{
+    flex: 0 0 30%;
+}
+
+.product-summary{
+    color: #62615f;
+    padding-bottom: .5em;
 }
 
 .product-price{
-    flex: 1 2 20%;
+    color: red;
+}
+
+.product-availability{
+    color: #090;
 }

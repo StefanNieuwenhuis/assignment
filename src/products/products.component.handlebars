@@ -7,7 +7,7 @@
         <ul>
             <li>{{specsTag}}</li>
             <li><a class="product-title" href="{{urls.0.value}}">{{title}}</a></li>
-            <li><small>{{summary}}</small></li>
+            <li class="product-summary">{{summary}}</li>
             <li>{{stars rating}}</li>
             {{#if promotions}}
             <li>{{promotions.0.title}}</li>
@@ -15,10 +15,10 @@
             <li class="description">{{{trim shortDescription}}}...<a href="{{urls.0.value}}">Meer</a></li>
         </ul>
     </div>
-    <div class="product-price">
+    <div class="product-offer-info">
         <ul>
-            <li>{{currency offerData.offers.0.price}}</li>
-            <li>{{offerData.offers.0.availabilityDescription}}</li>
+            <li class="product-price">{{currency offerData.offers.0.price}}</li>
+            <li  class="product-availability">{{offerData.offers.0.availabilityDescription}}</li>
             <li>Verkoop door: {{offerData.offers.0.seller.displayName}}</li>
         </ul>
     </div>
