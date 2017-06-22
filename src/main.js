@@ -16,7 +16,7 @@ class Main {
             this.createComponents();
 
             // Intialize infinite scroll for #container div
-            this.initInfiniteScroll("#products");
+            //this.initInfiniteScroll("#products");
 
             $("input[type='checkbox']").change((event) => {
                 const target = $(event.currentTarget)[0];
@@ -38,20 +38,22 @@ class Main {
                         jsonp: false,
                         jsonpCallback: 'search_suggestions_callback',
                         success: (data) => {
-                            console.log(data);
                             let suggestions = [];
                             data[1].forEach(suggestion => { suggestions.push(suggestion); });
                             response(suggestions);
                         },
                         error: (error) => response([])
                     });
-                },
-                select: function (event, ui) {
-                   if(ui.item){
-                       console.log(this);
-                       this.products.addFilter(ui.item.value);
-                   }
                 }
+            });
+
+            $("#search").click(event => {
+                event.preventDefault();
+                let val = $("#searchfield").val();
+
+                this.products.setLimit(130);
+                this.products.query = val;
+                this.products.init();
             });
         });
 
@@ -63,20 +65,6 @@ class Main {
         this.refinement = new RefinementComponent("#refinement"); // Create a new instance of RefinementComponent
         this.footer = new FooterComponent("#footer"); // Create a new instance of FooterComponent
 
-    }
-
-    initInfiniteScroll(containerId) {
-        const element = $(containerId)[0];
-
-        $(element).scroll(() => {
-            let scrollPosition = element.scrollHeight - element.scrollTop - element.clientHeight; // Get the current scrolling position
-
-            // When scrolled to the bottom of the container...
-            if (scrollPosition === 0) {
-                this.products.increaseLimit(10); // Increase the number of products visible by 10
-                this.products.init(); // Load all the products
-            }
-        });
     }
 }
 new Main(); // Create a new instance of Main

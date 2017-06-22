@@ -10,16 +10,20 @@ class ProductsComponent {
         this.container = container; // DOM container element
         this.products = []; // Array for products
         this.filters = []; // Array for filters
+        this.query = "";
         this.limit = 10; // Limit of products showed
+        this.maxLimit = 0;
 
         this.init(); // Initialize 
+        this.infiniteScroll();
     }
 
     init() {
         this.loadData().then(products => {
             this.products = products;
-            if (this.limit <= products.length) { this.setLimit(); }
-            if (this.filters.length > 0) { this.setFilter(); }
+            if (this.limit <= products.length) { this.createProductChunks(); }
+            if(this.query){this.search()};
+            if (this.filters.length > 0) { this.filter(); }
             this.setTemplate();
         });
     }
@@ -34,22 +38,30 @@ class ProductsComponent {
         });
     }
 
-    setLimit() {
+    createProductChunks() {
         this.products = this.products.slice(0, this.limit);
     }
 
-    setFilter() {
-        this.products = this.products.filter((product) => {
+    filter() {
+        this.products = this.products.filter(product => {
             return this.filters.indexOf(product.specsTag) >= 0;
         });
+
+    }
+
+    search(){
+        this.products = this.products.filter(product =>{
+            return product.specsTag.match(this.query);
+        });
+        console.log(this.query);
     }
 
     setTemplate() {
         $(this.container).html(template(this.products));
     }
 
-    increaseLimit(value) {
-        this.limit += value;
+    setLimit(limit) {
+        this.limit = limit;
     }
 
     addFilter(value) {
@@ -65,6 +77,19 @@ class ProductsComponent {
 
     filterData() {
         loadData();
+    }
+
+    infiniteScroll() {
+        const element = $(this.container)[0];
+        $(element).scroll(() => {
+            let scrollPosition = element.scrollHeight - element.scrollTop - element.clientHeight; // Get the current scrolling position
+
+            // When scrolled to the bottom of the container...
+            if (scrollPosition === 0) {
+                this.setLimit((this.limit + 10)); // Increase the number of products visible by 10
+                this.init(); // Load all the products
+            }
+        });
     }
 }
 export default ProductsComponent;
