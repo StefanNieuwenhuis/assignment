@@ -7,6 +7,7 @@ import HeaderComponent from './header/header.component';
 import ProductsComponent from './products/products.component';
 import RefinementComponent from './refinement/refinement.component';
 import FooterComponent from './footer/footer.component';
+import SearchComponent from './search/search.component';
 
 class Main {
     constructor() {
@@ -64,7 +65,7 @@ class Main {
         this.products = new ProductsComponent("#products"); // Create a new instance of ProductsComponent
         this.refinement = new RefinementComponent("#refinement"); // Create a new instance of RefinementComponent
         this.footer = new FooterComponent("#footer"); // Create a new instance of FooterComponent
-
+        this.search = new SearchComponent("#search");
     }
 }
 new Main(); // Create a new instance of Main
