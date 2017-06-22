@@ -25,7 +25,7 @@ class Main {
                 } else {
                     this.products.removeFilter($(target).val());
                 }
-                this.products.load();
+                this.products.init();
             });
 
 
@@ -74,7 +74,7 @@ class Main {
             // When scrolled to the bottom of the container...
             if (scrollPosition === 0) {
                 this.products.increaseLimit(10); // Increase the number of products visible by 10
-                this.products.load(); // Load all the products
+                this.products.init(); // Load all the products
             }
         });
     }

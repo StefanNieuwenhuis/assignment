@@ -8,6 +8,7 @@ class ProductsComponent {
 
     constructor(container) {
         this.container = container; // DOM container element
+        this.products = []; // Array for products
         this.filters = []; // Array for filters
         this.limit = 10; // Limit of products showed
 
@@ -15,20 +16,36 @@ class ProductsComponent {
     }
 
     init() {
-        this.load(); // Load tablets.json into Handlebars template
+        this.loadData().then(products => {
+            this.products = products;
+            if (this.limit <= products.length) { this.setLimit(); }
+            if (this.filters.length > 0) { this.setFilter(); }
+            this.setTemplate();
+        });
     }
 
-    load() {
-        let products = TABLETS.products;
-        if (this.limit <= products.length) {
-            products = products.slice(0, this.limit);
-        }
-        if (this.filters.length > 0) {
-            products = products.filter((product) => {
-                return this.filters.indexOf(product.specsTag) >= 0;
-            });
-        }
-        $(this.container).html(template(products));
+    loadData() {
+        return new Promise((resolve, reject) => {
+            if (TABLETS) {
+                resolve(TABLETS.products);
+            } else {
+                reject([]);
+            }
+        });
+    }
+
+    setLimit() {
+        this.products = this.products.slice(0, this.limit);
+    }
+
+    setFilter() {
+        this.products = this.products.filter((product) => {
+            return this.filters.indexOf(product.specsTag) >= 0;
+        });
+    }
+
+    setTemplate() {
+        $(this.container).html(template(this.products));
     }
 
     increaseLimit(value) {
@@ -47,7 +64,7 @@ class ProductsComponent {
     }
 
     filterData() {
-        load();
+        loadData();
     }
 }
 export default ProductsComponent;
