@@ -17,7 +17,7 @@ class ProductsComponent {
     constructor(container) {
         this.container = container; // DOM container element
         this.products = []; // Array for products
-        this.filters = []; // Array for filters
+        this.filtersBrand = []; // Array for filters
         this.filtersPrice = []; //string[] for storing price filters
         this.query = "";
         this.defaultChunkSize = 10;
@@ -36,7 +36,7 @@ class ProductsComponent {
             this.products = products;
 
             if (this.query) { this.search() };
-            if (this.filters.length > 0) { this.filter(); }
+            if (this.filtersBrand.length > 0) { this.filterProductsOnBrand(); }
             if (this.filtersPrice.length > 0) { this.filterProductsOnPrice(); }
             if (this.chunkSize <= products.length) { this.createProductChunks(); }
             this.bindHandlebarsTemplateToDom();
@@ -62,16 +62,6 @@ class ProductsComponent {
      */
     createProductChunks() {
         this.products = this.products.slice(0, this.chunkSize);
-    }
-
-    /**
-     * Filter products object by matching specsTag
-     * @return {Array<Object>} - Filtered products
-     */
-    filter() {
-        this.products = this.products.filter(product => {
-            return this.filters.indexOf(product.specsTag) >= 0;
-        });
     }
 
     /**
@@ -107,33 +97,51 @@ class ProductsComponent {
     }
 
     /**
-     * Add string values to this.filters:string[]
+     * Add string values to this.filtersBrand:string[]
      * @param {string} value - String value that matches this.products.specsTag
      */
-    addFilter(value) {
-        this.filters.push(value);
+    addBrandFilter(value) {
+        this.filtersBrand.push(value);
     }
 
     /**
-     * Remove string values from this.filters:string[]
-     * @param {string} value - String value that needs to be removed from this.filters:string[]
+     * Remove string values from this.filtersBrand:string[]
+     * @param {string} value - String value that needs to be removed from this.filtersBrand:string[]
      */
-    removeFilter(value) {
-        const index = this.filters.indexOf(value);
+    removeBrandFilter(value) {
+        const index = this.filtersBrand.indexOf(value);
         if (index > -1) {
-            this.filters.splice(index, 1);
+            this.filtersBrand.splice(index, 1);
         }
 
         // If no filters are active reset the chunk size to default (10) again
-        if (this.filters.length === 0) {
+        if (this.filtersBrand.length === 0) {
             this.resetChunkSizeToDefault();
         }
     }
 
+    /**
+     * Filter products object by matching specsTag
+     * @return {Array<Object>} - Filtered products
+     */
+    filterProductsOnBrand() {
+        this.products = this.products.filter(product => {
+            return this.filtersBrand.indexOf(product.specsTag) >= 0;
+        });
+    }
+
+    /**
+     * Add string values to this.filtersPrice:string[]
+     * @param {string} value - String value that matches this.products.offerData.offers[0].price
+     */
     addPriceFilter(value) {
         this.filtersPrice.push(value);
     }
 
+    /**
+     * Remove string values to this.filtersPrice:string[]
+     * @param {string} value - String value that matches this.products.offerData.offers[0].price
+     */
     removePriceFilter(value) {
         const index = this.filtersPrice.indexOf(value);
         if (index > -1) {
@@ -146,6 +154,10 @@ class ProductsComponent {
         }
     }
 
+    /**
+     * Filter products object by matching price range
+     * @return {Array<Object>} - Filtered products
+     */
     filterProductsOnPrice() {
         let results = []
         this.filtersPrice.map(filter => {
@@ -161,11 +173,11 @@ class ProductsComponent {
                 ));
             }
 
-            if(filter.indexOf(">") >= 0){
+            if (filter.indexOf(">") >= 0) {
                 let price = filter.substring(filter.indexOf(">") + 1);
                 results = results.concat(this.products.filter(product => product.offerData.offers[0].price >= price));
             }
-            
+
         });
         this.products = results;
     }

@@ -32,9 +32,9 @@ class Main {
                 const target = $(event.currentTarget)[0];
                 const value = $(target).val();
                 if (target.checked) {
-                    this.products.addFilter(value);
+                    this.products.addBrandFilter(value);
                 } else {
-                    this.products.removeFilter(value);
+                    this.products.removeBrandFilter(value);
                 }
                 this.products.loadAndFilterProducts();
             });
