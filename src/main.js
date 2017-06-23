@@ -74,4 +74,4 @@ class Main {
         this.search = new SearchComponent("#search");
     }
 }
-new Main(); // Create a new instance of Main
+new Main(); // Create a new instance of Main class

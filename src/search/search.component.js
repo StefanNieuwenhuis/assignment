@@ -17,7 +17,6 @@ class SearchComponent {
         this.container = container;
 
         this.bindAutocompleteToDomContainer();
-
         this.bindHandlebarsTemplateToDom();
     }
 

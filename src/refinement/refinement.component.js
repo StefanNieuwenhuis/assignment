@@ -41,10 +41,9 @@ class RefinementComponent {
                     { "label": "Wacom", "value": "Wacom" }
                 ],
                 "prijzen": [
-                    {"label": "€0 - €100", "value": "<100"},
-                    {"label": "€100 - €200", "value": "100-200"},
-                    {"label": "> €200", "value": ">200"},
-                    
+                    { "label": "€0 - €100", "value": "<100" },
+                    { "label": "€100 - €200", "value": "100-200" },
+                    { "label": "> €200", "value": ">200" }
                 ]
             };
 
