@@ -18,7 +18,8 @@ class ProductsComponent {
         this.products = []; // Array for products
         this.filters = []; // Array for filters
         this.query = "";
-        this.chunkSize = 10; // Limit of products showed
+        this.defaultChunkSize = 10;
+        this.chunkSize = this.defaultChunkSize; // # of products visible at the same time
         this.maxLimit = 0;
 
         this.loadAndFilterProducts(); // Load and filter products 
@@ -100,6 +101,13 @@ class ProductsComponent {
     }
 
     /**
+     * Reset the chunk size to default (value 10)
+     */
+    resetChunkSizeToDefault(){
+        this.setChunkSize(this.defaultChunkSize);
+    }
+
+    /**
      * Add string values to this.filters:string[]
      * @param {string} value - String value that matches this.products.specsTag
      */
@@ -115,6 +123,11 @@ class ProductsComponent {
         const index = this.filters.indexOf(value);
         if (index > -1) {
             this.filters.splice(index, 1);
+        }
+
+        // If no filters are active reset the chunk size to default (10) again
+        if(this.filters.length === 0){
+            this.resetChunkSizeToDefault();
         }
     }
 
