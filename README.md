@@ -1,5 +1,5 @@
 ## Assignment
-Bol.com Assignment Front-end Engineer Javascript carried out by Stefan Nieuwenhuis [<stefannhs@gmail.com>](mailto:stefannhs@gmail.com).
+Bol.com Assignment Front-end Engineer Javascript carried out by Stefan Nieuwenhuis.
 
 ## Prerequisites
 > This project has dependencies that require both Node 6.9.0 or higher and NPM 3 or higher and requires webpack-dev-server to be installed globally.
