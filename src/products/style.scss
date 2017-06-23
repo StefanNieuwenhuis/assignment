@@ -1,0 +1,53 @@
+@import "../_variables.scss";  
+div{
+    background: $background;
+}
+ul{
+    list-style: none;
+}
+
+.category-info{
+    border-bottom: 1px solid #eee;
+    margin-bottom: 2em;
+}
+
+a.product-title{
+    font-family: "Open Sans",Arial,Helvetica,sans-serif;
+    text-decoration: none;
+    font-weight: 600;
+    padding-bottom: 0;
+    color: $font-color;
+}
+
+.product-flex-container{
+    display: flex;
+}
+
+.product-image{
+    flex: 0 0 19%;
+}
+
+.product-info{
+    flex: 0 1 60%;
+}
+
+.product-offer-info{
+    flex: 0 0 21%;
+}
+
+.product-summary{
+    color: #62615f;
+    padding-bottom: .5em;
+}
+
+.product-price{
+    color: red;
+}
+
+.product-availability{
+    color: #090;
+}
+
+.product-rating{
+    color: gold;
+}

@@ -1,0 +1,62 @@
+@import "./_variables.scss";  
+html, body{
+    overflow: hidden;
+    font-family: $font-family;
+    
+    line-height: 1.5;
+    color: $font-color;
+}
+
+header, footer{
+    flex: 1 100%;
+    min-height: 100%;
+    margin: 0 auto;
+}
+header{
+    margin-bottom: 2em;
+}
+
+main{
+    width: 100%;
+}
+
+.flex-container{
+    display: flex;
+}
+
+.flex-container > aside{
+    flex: 1 6 20%;
+}
+
+.flex-container > article{
+    flex: 3 1 80%;
+    overflow-y: scroll;
+    height: 800px;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+ul{
+    list-style-type: none;
+}
+
+@media all and (max-width: 640px) {
+    .flex-container {
+            flex-direction: column;
+        }
+
+        .flex-container > aside, .flex-container > article {
+        /* Return them to document order */
+            order: 0;
+        }
+  
+       .flex-container > aside, header, footer {
+            min-height: 50px;
+            max-height: 50px;
+        }
+    }

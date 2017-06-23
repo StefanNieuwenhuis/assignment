@@ -1,0 +1,65 @@
+@import "../_variables.scss"; 
+
+.refinement-category-header{
+    border-bottom: 1px solid #eee;
+    width: 75%;
+}
+
+.refinement-list-brands{
+    padding: 0;
+}
+
+.refinement-list-brands li {
+    display:table;
+}
+
+.refinement-list-brands li div{
+    display:table-cell;
+}
+
+.refinement-list-label{
+    padding-left: 1em;
+}
+
+input[type=checkbox] {
+	visibility: hidden;
+}
+
+.checkbox-container{
+  width: 15px;
+  position: relative;
+}
+
+.checkbox-container label{
+  cursor: pointer;
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  top: 0;
+  left: 0;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 10%;
+}
+
+.checkbox-container label:after{
+    opacity: 0;
+    content: ' ';
+    position: absolute;
+    width: 9px;
+    height: 5px;
+    background: transparent;
+    top: 2px;
+    left: 2px;
+    border: 3px solid #36c;
+    border-top: none;
+    border-right: none;
+
+    transform: rotate(-45deg);
+}
+
+
+
+.checkbox-container input[type=checkbox]:checked + label:after {
+	opacity: 1;
+}
