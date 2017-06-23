@@ -1,12 +1,12 @@
-<h3>Merk</h3>
-<ul class="list-brands">
+<h3 class="refinement-category-header">Merk</h3>
+<ul class="refinement-list-brands">
     {{#each merken}}
     <li>
         <div class="checkbox-container">
             <input type="checkbox" id="chkBoxRefinement_{{@index}}" value="{{value}}" />
             <label for="chkBoxRefinement_{{@index}}"></label>
         </div> 
-        <div class="refinement-label">{{label}}</span>
+        <div class="refinement-list-label">{{label}}</span>
     </li>
     {{/each}}
 </ul>

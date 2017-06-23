@@ -6,6 +6,11 @@ ul{
     list-style: none;
 }
 
+.category-info{
+    border-bottom: 1px solid #eee;
+    margin-bottom: 2em;
+}
+
 a.product-title{
     font-family: "Open Sans",Arial,Helvetica,sans-serif;
     text-decoration: none;
@@ -19,7 +24,7 @@ a.product-title{
 }
 
 .product-image{
-    flex: 0 0 10%;
+    flex: 0 0 20%;
 }
 
 .product-info{
@@ -27,7 +32,7 @@ a.product-title{
 }
 
 .product-offer-info{
-    flex: 0 0 30%;
+    flex: 0 0 20%;
 }
 
 .product-summary{
@@ -41,4 +46,8 @@ a.product-title{
 
 .product-availability{
     color: #090;
+}
+
+.product-rating{
+    color: gold;
 }

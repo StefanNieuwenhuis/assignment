@@ -39,8 +39,6 @@ class ProductsComponent {
             if (this.chunkSize <= products.length) { this.createProductChunks(); }
             this.bindHandlebarsTemplateToDom();
         });
-
-
     }
 
     /**
@@ -64,7 +62,6 @@ class ProductsComponent {
         this.products = this.products.slice(0, this.chunkSize);
     }
 
-
     /**
      * Filter products object by matching specsTag
      * @return {Array<Object>} - Filtered products
@@ -73,7 +70,6 @@ class ProductsComponent {
         this.products = this.products.filter(product => {
             return this.filters.indexOf(product.specsTag) >= 0;
         });
-
     }
 
     /**
@@ -130,13 +126,6 @@ class ProductsComponent {
         if(this.filters.length === 0){
             this.resetChunkSizeToDefault();
         }
-    }
-
-    /**
-     * Filter this.products
-     */
-    filterData() {
-        loadData();
     }
 
     /**

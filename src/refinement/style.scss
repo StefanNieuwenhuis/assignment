@@ -1,18 +1,23 @@
-@import "../_variables.scss";  
-ul.list-brands{
-    list-style: none;
+@import "../_variables.scss"; 
+
+.refinement-category-header{
+    border-bottom: 1px solid #eee;
+    width: 75%;
+}
+
+.refinement-list-brands{
     padding: 0;
 }
 
-.list-brands li {
+.refinement-list-brands li {
     display:table;
 }
 
-.list-brands li div{
+.refinement-list-brands li div{
     display:table-cell;
 }
 
-.refinement-label{
+.refinement-list-label{
     padding-left: 1em;
 }
 

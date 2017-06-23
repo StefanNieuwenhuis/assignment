@@ -4,14 +4,14 @@
  * @return {string} - String that contains the corresponding # of stars
  */
 module.exports = (rating) => {
-    let stars = "";
+    let stars = document.createElement("span");
     let i = 0;
     if (rating) {
         let total = parseInt(rating / 10);
         for(let i=0; i<=total; i++){
-            stars += "*";
+            stars.innerHTML += "&#9733;";
         }
     }
-    return stars;
+    return stars.innerHTML;
 
 }

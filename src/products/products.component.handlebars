@@ -1,3 +1,12 @@
+<div class="category-info">
+    <h3>Tablets</h3>
+    <p>Tablets zijn er in allerlei vormen en maten. Zo zijn er tablets tot 7 inch maar ook tablets die groter zijn dan 12 inch.
+        Het is goed om te bepalen waarvoor je een tablet wilt gebruiken. Als je deze vaak wilt meenemen in de trein wil je
+        misschien liever een kleinere tablet dan wanneer je deze alleen op de bank gaat gebruiken. Let ook op het opslaggeheugen.
+        Als je bijvoorbeeld veel muziek op je tablet wilt opslaan, heb je meer geheugen nodig dan wanneer je deze alleen
+        gebruikt om te surfen.</p>
+</div>
+
 {{#each this}}
 <div class="product-flex-container">
     <div class="product-image">
@@ -8,9 +17,9 @@
             <li>{{specsTag}}</li>
             <li><a class="product-title" href="{{urls.0.value}}">{{title}}</a></li>
             <li class="product-summary">{{summary}}</li>
-            <li>{{stars rating}}</li>
+            <li class="product-rating">{{stars rating}}</li>
             {{#if promotions}}
-            <li>{{promotions.0.title}}</li>
+                <li>{{promotions.0.title}}</li>
             {{/if}}
             <li class="description">{{{trim shortDescription}}}...<a href="{{urls.0.value}}">Meer</a></li>
         </ul>
@@ -24,5 +33,5 @@
     </div>
 </div>
 {{else}}
-<p>Er zijn geen producten gevonden.</p>
+<h3>Er zijn geen producten gevonden.</h3>
 {{/each}}
