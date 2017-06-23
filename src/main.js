@@ -21,14 +21,14 @@ class Main {
      * Create a component called MainComponent
      */
     constructor() {
+
         // When the DOM is ready...
         $(() => {
-            // Create all components
-            this.createComponents();
+            // Initialize all components
+            this.initializeComponents();
 
-            // Intialize infinite scroll for #container div
-            //this.initInfiniteScroll("#products");
-
+            // Bind onchange event to all checkboxes in the application
+            // This enables the application to filter the products object
             $("input[type='checkbox']").change((event) => {
                 const target = $(event.currentTarget)[0];
                 if (target.checked) {
@@ -36,10 +36,11 @@ class Main {
                 } else {
                     this.products.removeFilter($(target).val());
                 }
-                this.products.init();
+                this.products.init(); // TODO: Rename!
             });
 
-
+            // Bind autocomple event to the searchbox
+            // This enables the application to generate search suggestions
             $("#searchfield").autocomplete({
                 source: (request, response) => {
                     $.ajax({
@@ -58,6 +59,8 @@ class Main {
                 }
             });
 
+            // Bind onclick event to the search button 
+            // This allows the application to query and list the products
             $("#btnSearch").click(event => {
                 event.preventDefault();
                 this.products.setLimit(10);
@@ -69,9 +72,9 @@ class Main {
     }
 
     /**
-     * Setup all components/views needed for the application
+     * Initialize all components/views needed for the application
      */
-    createComponents() {
+    initializeComponents() {
         this.header = new HeaderComponent("#header"); // Create a new instance of HeaderComponent
         this.products = new ProductsComponent("#products"); // Create a new instance of ProductsComponent
         this.refinement = new RefinementComponent("#refinement"); // Create a new instance of RefinementComponent
