@@ -1,7 +1,7 @@
-import $ from 'jquery';
-import './style.scss';
+import $ from "jquery";
+import "./style.scss";
 
-let template = require('./refinement.component.handlebars');
+let template = require("./refinement.component.handlebars");
 
 class RefinementComponent {
     constructor(container) {

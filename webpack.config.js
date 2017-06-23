@@ -25,13 +25,17 @@ module.exports = {
 
                 test: /\.scss$/,
                 loaders: [
-                    'style-loader',
-                    'css-loader',
-                    'sass-loader'
+                    "style-loader",
+                    "css-loader",
+                    "sass-loader"
                 ],
                 exclude: [
-                    path.resolve(__dirname, 'node_modules')
+                    path.resolve(__dirname, "node_modules")
                 ]
+            },
+            {
+                test: /\.(jpe?g|png|gif|svg|ico)$/i,
+                loader: "file-loader?name=./dist/images/[name].[ext]"
             },
             {
                 loader: "handlebars-loader",

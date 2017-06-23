@@ -1,13 +1,15 @@
-'use strict';
-import $ from 'jquery';
+"use strict";
+import $ from "jquery";
 import "jquery-ui/ui/widgets/autocomplete";
-import './styles.scss';
+import "./styles.scss";
 
-import HeaderComponent from './header/header.component';
-import ProductsComponent from './products/products.component';
-import RefinementComponent from './refinement/refinement.component';
-import FooterComponent from './footer/footer.component';
-import SearchComponent from './search/search.component';
+import favicon from "../favicon.ico";
+
+import HeaderComponent from "./header/header.component";
+import ProductsComponent from "./products/products.component";
+import RefinementComponent from "./refinement/refinement.component";
+import FooterComponent from "./footer/footer.component";
+import SearchComponent from "./search/search.component";
 
 class Main {
     constructor() {
@@ -35,9 +37,9 @@ class Main {
                     $.ajax({
                         url: `${window.location.protocol}//zoeksuggesties.s-bol.com/extern/qs/OpenSearchJSCB/search_suggestions_callback/media_all/${encodeURIComponent(request.term)}`,
                         cache: true,
-                        dataType: 'jsonp',
+                        dataType: "jsonp",
                         jsonp: false,
-                        jsonpCallback: 'search_suggestions_callback',
+                        jsonpCallback: "search_suggestions_callback",
                         success: (data) => {
                             let suggestions = [];
                             data[1].forEach(suggestion => { suggestions.push(suggestion); });
