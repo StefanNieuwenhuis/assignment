@@ -18,6 +18,7 @@ class ProductsComponent {
         this.container = container; // DOM container element
         this.products = []; // Array for products
         this.filters = []; // Array for filters
+        this.filtersPrice = []; //string[] for storing price filters
         this.query = "";
         this.defaultChunkSize = 10;
         this.chunkSize = this.defaultChunkSize; // # of products visible at the same time
@@ -36,6 +37,7 @@ class ProductsComponent {
 
             if (this.query) { this.search() };
             if (this.filters.length > 0) { this.filter(); }
+            if (this.filtersPrice.length > 0) { this.filterProductsOnPrice(); }
             if (this.chunkSize <= products.length) { this.createProductChunks(); }
             this.bindHandlebarsTemplateToDom();
         });
@@ -100,7 +102,7 @@ class ProductsComponent {
     /**
      * Reset the chunk size to default (value 10)
      */
-    resetChunkSizeToDefault(){
+    resetChunkSizeToDefault() {
         this.setChunkSize(this.defaultChunkSize);
     }
 
@@ -123,9 +125,47 @@ class ProductsComponent {
         }
 
         // If no filters are active reset the chunk size to default (10) again
-        if(this.filters.length === 0){
+        if (this.filters.length === 0) {
             this.resetChunkSizeToDefault();
         }
+    }
+
+    addPriceFilter(value) {
+        this.filtersPrice.push(value);
+    }
+
+    removePriceFilter(value) {
+        const index = this.filtersPrice.indexOf(value);
+        if (index > -1) {
+            this.filtersPrice.splice(index, 1);
+        }
+
+        // If no filters are active reset the chunk size to default (10) again
+        if (this.filtersPrice.length === 0) {
+            this.resetChunkSizeToDefault();
+        }
+    }
+
+    filterProductsOnPrice() {
+        this.filtersPrice.map(filter => {
+            if (filter.indexOf("<") >= 0) {
+                let price = filter.substring(filter.indexOf("<") + 1);
+                this.products = this.products.filter(product => product.offerData.offers[0].price <= price);
+            }
+            if (filter.indexOf("-") >= 0) {
+                let priceRange = filter.split("-");
+                this.products = this.products.filter(product =>
+                    product.offerData.offers[0].price >= priceRange[0] &&
+                    product.offerData.offers[0].price <= priceRange[1]
+                );
+            }
+
+            if(filter.indexOf(">") >= 0){
+                let price = filter.substring(filter.indexOf(">") + 1);
+                this.products = this.products.filter(product => product.offerData.offers[0].price >= price);
+                
+            }
+        });
     }
 
     /**

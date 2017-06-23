@@ -26,14 +26,28 @@ class Main {
             // Initialize all components
             this.initializeComponents();
 
-            // Bind onchange event to all checkboxes in the application
-            // This enables the application to filter the products object
-            $("input[type='checkbox']").change((event) => {
+            // Bind onchange event to all chkBoxRefineBrand_ checkboxes in the application
+            // This enables the application to filter the products specsTag object
+            $("input[id*='chkBoxRefineBrand_']").change((event) => {
                 const target = $(event.currentTarget)[0];
+                const value = $(target).val();
                 if (target.checked) {
-                    this.products.addFilter($(target).val());
+                    this.products.addFilter(value);
                 } else {
-                    this.products.removeFilter($(target).val());
+                    this.products.removeFilter(value);
+                }
+                this.products.loadAndFilterProducts();
+            });
+
+            // Bind onchange event to all chkBoxRefinePrice_ checkboxes in the application
+            // This enables the application to filter the products specsTag object
+            $("input[id*='chkBoxRefinePrice_']").change((event) => {
+                const target = $(event.currentTarget)[0];
+                const value = $(target).val();
+                if(target.checked){
+                    this.products.addPriceFilter(value);
+                }else{
+                    this.products.removePriceFilter(value);
                 }
                 this.products.loadAndFilterProducts();
             });
@@ -47,7 +61,6 @@ class Main {
                 this.products.loadAndFilterProducts();
             });
         });
-
     }
 
     /**

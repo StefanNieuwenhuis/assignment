@@ -25,11 +25,11 @@ main{
 }
 
 .flex-container > aside{
-    flex: 1 6 15%;
+    flex: 1 6 20%;
 }
 
 .flex-container > article{
-    flex: 3 1 85%;
+    flex: 3 1 80%;
     overflow-y: scroll;
     height: 800px;
 }

@@ -3,10 +3,24 @@
     {{#each merken}}
     <li>
         <div class="checkbox-container">
-            <input type="checkbox" id="chkBoxRefinement_{{@index}}" value="{{value}}" />
-            <label for="chkBoxRefinement_{{@index}}"></label>
+            <input type="checkbox" id="chkBoxRefineBrand_{{@index}}" value="{{value}}" />
+            <label for="chkBoxRefineBrand_{{@index}}"></label>
         </div> 
         <div class="refinement-list-label">{{label}}</span>
     </li>
     {{/each}}
 </ul>
+
+<h3 class="refinement-category-header">Wat mag het kosten?</h3>
+<ul class="refinement-list-brands">
+    {{#each prijzen}}
+    <li>
+        <div class="checkbox-container">
+            <input type="checkbox" id="chkBoxRefinePrice_{{@index}}" value="{{value}}" />
+            <label for="chkBoxRefinePrice_{{@index}}"></label>
+        </div> 
+        <div class="refinement-list-label">{{label}}</span>
+    </li>
+    {{/each}}
+</ul>
+
