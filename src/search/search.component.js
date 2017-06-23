@@ -3,17 +3,28 @@ import "./style.scss";
 
 let template = require("./search.component.handlebars");
 
-class HeaderComponent {
+/**
+ * Class representing a ProductsComponent
+ */
+class SearchComponent {
+
+    /**
+     * Create a component called SearchComponent
+     * @param {string} container - DOM container id to bind Handlebars template to
+     */
     constructor(container) {
         this.container = container;
 
-        this.load();
+        this.bindHandlebarsTemplateToDom();
     }
 
-    load() {
+    /**
+     * Bind handlebars template to DOM element
+     */
+    bindHandlebarsTemplateToDom() {
         $(this.container).html(template());
 
-        
+
     }
 }
-export default HeaderComponent;
+export default SearchComponent;

@@ -3,7 +3,15 @@ import "./style.scss";
 
 let template = require("./refinement.component.handlebars");
 
+/**
+ * Class representing a RefinementComponent
+ */
 class RefinementComponent {
+
+    /**
+     * Create a component called RefinementComponent
+     * @param {string} container - DOM container id to bind Handlebars template to
+     */
     constructor(container) {
         this.container = container;
 
@@ -25,10 +33,13 @@ class RefinementComponent {
                 ]
             };
 
-        this.load();
+        this.bindHandlebarsTemplateToDom();
     }
 
-    load() {
+    /**
+     * Bind handlebars template to DOM element
+     */
+    bindHandlebarsTemplateToDom() {
         $(this.container).html(template(this.items));
     }
 }
