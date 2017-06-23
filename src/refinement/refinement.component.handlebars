@@ -2,7 +2,11 @@
 <ul class="list-brands">
     {{#each merken}}
     <li>
-        <input type="checkbox" name="chkBoxRefinement" value="{{value}}" /> {{label}}
+        <div class="checkbox-container">
+            <input type="checkbox" id="chkBoxRefinement_{{@index}}" value="{{value}}" />
+            <label for="chkBoxRefinement_{{@index}}"></label>
+        </div> 
+        <div class="refinement-label">{{label}}</span>
     </li>
     {{/each}}
 </ul>
