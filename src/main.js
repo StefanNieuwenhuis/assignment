@@ -1,6 +1,6 @@
 "use strict";
 import $ from "jquery";
-import "jquery-ui/ui/widgets/autocomplete";
+
 import "./styles.scss";
 
 import favicon from "../favicon.ico";
@@ -21,7 +21,6 @@ class Main {
      * Create a component called MainComponent
      */
     constructor() {
-
         // When the DOM is ready...
         $(() => {
             // Initialize all components
@@ -37,26 +36,6 @@ class Main {
                     this.products.removeFilter($(target).val());
                 }
                 this.products.loadAndFilterProducts();
-            });
-
-            // Bind autocomple event to the searchbox
-            // This enables the application to generate search suggestions
-            $("#searchfield").autocomplete({
-                source: (request, response) => {
-                    $.ajax({
-                        url: `${window.location.protocol}//zoeksuggesties.s-bol.com/extern/qs/OpenSearchJSCB/search_suggestions_callback/media_all/${encodeURIComponent(request.term)}`,
-                        cache: true,
-                        dataType: "jsonp",
-                        jsonp: false,
-                        jsonpCallback: "search_suggestions_callback",
-                        success: (data) => {
-                            let suggestions = [];
-                            data[1].forEach(suggestion => { suggestions.push(suggestion); });
-                            response(suggestions);
-                        },
-                        error: (error) => response([])
-                    });
-                }
             });
 
             // Bind onclick event to the search button 
