@@ -2,14 +2,16 @@
 Bol.com Assignment carried out by Stefan Nieuwenhuis <stefannhs@gmail.com>
 
 ## Prerequisites
-> This project requires webpack-dev-server to be installed globally and has dependencies that require both Node 6.9.0 or higher and NPM 3 or higher.
+> This project has dependencies that require both Node 6.9.0 or higher and NPM 3 or higher and requires webpack-dev-server to be installed globally.
+
+Get Node and NPM [here](https://nodejs.org/en/).
 
 To install webpack-dev-server globally:
 ```bash
     $ npm install -g webpack-dev-server
 ```
 
-Get Node and NPM [here](https://nodejs.org/en/).
+
 
 ## Table of contents
 * [Installation](#installation)
@@ -33,4 +35,4 @@ Navigate to `http://localhost:8080/`. The app will automatically reload if you c
 ```bash
     $ npm run build
 ```
-A folder `dist` is generated in the root folder of the project and contains all the bundled sources.
+A folder called `dist` is generated in the root of the project and contains all the bundled sources.
