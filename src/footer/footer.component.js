@@ -3,6 +3,9 @@ import "./style.scss";
 
 let template = require("./footer.component.handlebars");
 
+/**
+ * Class representing a FooterComponent
+ */
 class footerComponent {
 
     /**

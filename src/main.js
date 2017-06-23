@@ -11,7 +11,15 @@ import RefinementComponent from "./refinement/refinement.component";
 import FooterComponent from "./footer/footer.component";
 import SearchComponent from "./search/search.component";
 
+
+/**
+ * Class representing a MainComponent
+ */
 class Main {
+
+    /**
+     * Create a component called MainComponent
+     */
     constructor() {
         // When the DOM is ready...
         $(() => {
@@ -60,6 +68,9 @@ class Main {
 
     }
 
+    /**
+     * Setup all components/views needed for the application
+     */
     createComponents() {
         this.header = new HeaderComponent("#header"); // Create a new instance of HeaderComponent
         this.products = new ProductsComponent("#products"); // Create a new instance of ProductsComponent

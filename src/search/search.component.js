@@ -4,7 +4,7 @@ import "./style.scss";
 let template = require("./search.component.handlebars");
 
 /**
- * Class representing a ProductsComponent
+ * Class representing a SearchComponent
  */
 class SearchComponent {
 
