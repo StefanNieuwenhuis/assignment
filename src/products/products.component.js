@@ -147,25 +147,27 @@ class ProductsComponent {
     }
 
     filterProductsOnPrice() {
+        let results = []
         this.filtersPrice.map(filter => {
             if (filter.indexOf("<") >= 0) {
                 let price = filter.substring(filter.indexOf("<") + 1);
-                this.products = this.products.filter(product => product.offerData.offers[0].price <= price);
+                results = results.concat(this.products.filter(product => product.offerData.offers[0].price <= price));
             }
             if (filter.indexOf("-") >= 0) {
                 let priceRange = filter.split("-");
-                this.products = this.products.filter(product =>
+                results = results.concat(this.products.filter(product =>
                     product.offerData.offers[0].price >= priceRange[0] &&
                     product.offerData.offers[0].price <= priceRange[1]
-                );
+                ));
             }
 
             if(filter.indexOf(">") >= 0){
                 let price = filter.substring(filter.indexOf(">") + 1);
-                this.products = this.products.filter(product => product.offerData.offers[0].price >= price);
-                
+                results = results.concat(this.products.filter(product => product.offerData.offers[0].price >= price));
             }
+            
         });
+        this.products = results;
     }
 
     /**
