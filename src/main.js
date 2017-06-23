@@ -36,7 +36,7 @@ class Main {
                 } else {
                     this.products.removeFilter($(target).val());
                 }
-                this.products.init(); // TODO: Rename!
+                this.products.loadAndFilterProducts();
             });
 
             // Bind autocomple event to the searchbox
@@ -63,9 +63,9 @@ class Main {
             // This allows the application to query and list the products
             $("#btnSearch").click(event => {
                 event.preventDefault();
-                this.products.setLimit(10);
+                this.products.setChunkSize(10);
                 this.products.query = $("#searchfield").val();
-                this.products.init();
+                this.products.loadAndFilterProducts();
             });
         });
 
