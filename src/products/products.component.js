@@ -2,6 +2,7 @@ import $ from "jquery";
 import "./style.scss";
 
 let template = require("./products.component.handlebars");
+
 import * as TABLETS from "../../data/tablets.json";
 
 /**

@@ -1,7 +1,7 @@
 import $ from "jquery";
 import "./style.scss";
 
-import logo from "../public/images/logo.png";
+import logo from "../../images/logo.png";
 
 let template = require("./header.component.handlebars");
 

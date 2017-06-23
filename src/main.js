@@ -42,7 +42,7 @@ class Main {
             // This allows the application to query and list the products
             $("#btnSearch").click(event => {
                 event.preventDefault();
-                this.products.resetChunkSizeToDefault();
+                this.products.resetChunkSizeToDefault(); // Feed results one chunk at the time
                 this.products.query = $("#searchfield").val();
                 this.products.loadAndFilterProducts();
             });

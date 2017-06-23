@@ -1,3 +1,8 @@
+/**
+ * Replaces rating with the corresponding # of stars
+ * @param {number} rating - Product rating originating from tablets.json
+ * @return {string} - String that contains the corresponding # of stars
+ */
 module.exports = (rating) => {
     let stars = "";
     let i = 0;
